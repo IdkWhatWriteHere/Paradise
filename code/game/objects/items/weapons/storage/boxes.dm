@@ -104,6 +104,7 @@
 	new /obj/item/crowbar/red(src)
 	new /obj/item/reagent_containers/hypospray/autoinjector(src)
 	new /obj/item/flashlight/flare/glowstick/emergency(src)
+	new /obj/item/melee/rapier(src)
 
 /obj/item/storage/box/survival_syndi
 	icon_state = "box_syndi"
