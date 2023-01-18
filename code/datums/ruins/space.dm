@@ -309,6 +309,12 @@
 	description = "Whoever doesn't wish to have their own paradise corner in space! \
 		Wait, where did I put spray tan?.."
 
+/datum/map_template/ruin/space/falseheaven
+	id = "false-heaven"
+	suffix = "falseheaven.dmm"
+	name = "Green asteroid"
+	description = "A strange asteroid. There is oxygen and grass, bushes and trees, perfect place for sleep after long way in space."
+
 /* Старый код для добавления Тайпана. Оставлено на всякий случай
 /datum/map_template/ruin/space/syndicate_space_base
 	id = "syndicate_space_base"
