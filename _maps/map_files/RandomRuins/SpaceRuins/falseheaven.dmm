@@ -16,9 +16,7 @@
 /turf/simulated/floor/grass,
 /area/ruin/unpowered/no_grav/way_home)
 "f" = (
-/obj/effect/decal/remains/human{
-	desc = "выглядят как останки человека, трава оплела их"
-	},
+/obj/item/bedsheet/black,
 /turf/simulated/floor/grass,
 /area/ruin/unpowered/no_grav/way_home)
 "g" = (
@@ -27,6 +25,23 @@
 /area/ruin/unpowered/no_grav/way_home)
 "h" = (
 /obj/structure/flora/rock,
+/turf/simulated/floor/grass,
+/area/ruin/unpowered/no_grav/way_home)
+"q" = (
+/obj/item/paper{
+	info = "прекрасное место посреди космоса, местный воздух довольно тяжёлый и тянет в сон, трава довольно мягкая. Посполю час или два и полечу дальше."
+	},
+/turf/simulated/floor/grass,
+/area/ruin/unpowered/no_grav/way_home)
+"I" = (
+/obj/effect/light_emitter/tendril,
+/turf/simulated/floor/grass,
+/area/ruin/unpowered/no_grav/way_home)
+"J" = (
+/obj/effect/decal/remains/human{
+	desc = "выглядят как останки человека, трава оплела их.";
+	name = "Human remains"
+	},
 /turf/simulated/floor/grass,
 /area/ruin/unpowered/no_grav/way_home)
 "L" = (
@@ -76,7 +91,7 @@ a
 a
 a
 L
-L
+I
 L
 a
 a
@@ -113,7 +128,7 @@ c
 c
 c
 c
-L
+I
 L
 a
 a
@@ -124,7 +139,7 @@ a
 a
 L
 L
-c
+I
 c
 c
 c
@@ -155,19 +170,19 @@ a
 "}
 (8,1,1) = {"
 a
-L
+I
 c
 d
 e
 f
+q
 c
-d
 c
 c
 e
 c
 d
-L
+I
 a
 "}
 (9,1,1) = {"
@@ -176,7 +191,7 @@ L
 c
 c
 c
-c
+J
 g
 c
 c
@@ -215,7 +230,7 @@ c
 e
 c
 d
-L
+I
 L
 a
 a
@@ -225,7 +240,7 @@ a
 a
 L
 L
-c
+I
 c
 c
 d
@@ -262,7 +277,7 @@ a
 a
 L
 L
-L
+I
 L
 L
 a
