@@ -4,34 +4,34 @@
 /area/awaycontent)
 "b" = (
 /turf/simulated/wall/indestructible/fakeglass,
-/area/awaycontent)
+/area/ruin/unpowered/no_grav/way_home)
 "c" = (
 /turf/simulated/floor/grass,
-/area/awaycontent)
+/area/ruin/unpowered/no_grav/way_home)
 "d" = (
 /obj/structure/bush,
 /turf/simulated/floor/grass,
-/area/awaycontent)
+/area/ruin/unpowered/no_grav/way_home)
 "e" = (
 /obj/structure/flora/tree/jungle{
 	desc = "довольно странно, но ветви тянутся к тебе"
 	},
 /turf/simulated/floor/grass,
-/area/awaycontent)
+/area/ruin/unpowered/no_grav/way_home)
 "f" = (
 /obj/effect/decal/remains/human{
 	desc = "выглядят как останки человека, трава оплела их"
 	},
 /turf/simulated/floor/grass,
-/area/awaycontent)
+/area/ruin/unpowered/no_grav/way_home)
 "g" = (
 /obj/item/instrument/guitar,
 /turf/simulated/floor/grass,
-/area/awaycontent)
+/area/ruin/unpowered/no_grav/way_home)
 "h" = (
 /obj/structure/flora/rock,
 /turf/simulated/floor/grass,
-/area/awaycontent)
+/area/ruin/unpowered/no_grav/way_home)
 
 (1,1,1) = {"
 a
