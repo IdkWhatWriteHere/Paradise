@@ -22,6 +22,7 @@
 #_maps/map_files/RandomRuins/SpaceRuins/intactemptyship.dmm
 #_maps/map_files/RandomRuins/SpaceRuins/mechtransport.dmm
 #_maps/map_files/RandomRuins/SpaceRuins/turretedoutpost.dmm
+#_maps/map_files/RandomRuins/SpaceRuins/falseheaven.dmm
 
 ### The following ruins are based from past pre-spawned Zlevel content ###
 
