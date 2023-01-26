@@ -1,3 +1,8 @@
+#define CONSTRUCTION_COMPLETE 0 //No construction done - functioning as normal
+#define CONSTRUCTION_PANEL_OPEN 1 //Maintenance panel is open, still functioning
+#define CONSTRUCTION_WIRES_EXPOSED 2 //Cover plate is removed, wires are available
+#define CONSTRUCTION_GUTTED 3 //Wires are removed, circuit ready to remove
+#define CONSTRUCTION_NOCIRCUIT 4 //Circuit board removed, can safely weld apart
 /obj/structure/closet
 	name = "closet"
 	desc = "It's a basic storage unit."
@@ -20,6 +25,7 @@
 	var/storage_capacity = 30 //This is so that someone can't pack hundreds of items in a locker/crate then open it in a populated area to crash clients.
 	var/material_drop = /obj/item/stack/sheet/metal
 	var/material_drop_amount = 2
+	var/lock_installed = FALSE //полностью установленный замок, под конец сборки он будет работать как у personal.dm
 
 // Please dont override this unless you absolutely have to
 /obj/structure/closet/Initialize(mapload)
@@ -52,6 +58,13 @@
 /obj/structure/closet/Destroy()
 	dump_contents()
 	return ..()
+// установка замка на шкаф
+/obj/structure/closet/attackby(obj/item/L, mob/user, params)
+	if(istype(L, /obj/item/Lockerlock_electronics))
+		//if(do_after(user, 60 * L.toolspeed, target = src))
+		new/obj/item/stack/tape_roll()
+		//return
+	return
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target, height=0)
 	if(istype(mover) && mover.checkpass(PASS_OTHER_THINGS))
@@ -415,3 +428,9 @@
 /obj/structure/closet/bluespace/close()
 	. = ..()
 	density = 0
+
+#undef CONSTRUCTION_COMPLETE
+#undef CONSTRUCTION_PANEL_OPEN
+#undef CONSTRUCTION_WIRES_EXPOSED
+#undef CONSTRUCTION_GUTTED
+#undef CONSTRUCTION_NOCIRCUIT

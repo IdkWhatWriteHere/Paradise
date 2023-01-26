@@ -3,8 +3,10 @@
 #define CONSTRUCTION_WIRES_EXPOSED 2 //Cover plate is removed, wires are available
 #define CONSTRUCTION_GUTTED 3 //Wires are removed, circuit ready to remove
 #define CONSTRUCTION_NOCIRCUIT 4 //Circuit board removed, can safely weld apart
+
 var/constructionStep = null
-/obj/structures/cratec_lockers/closet/secure/personal
+var/registered_name = null
+/obj/structures/crates_lockers/closet/secure/personal
 	desc = "It's a secure locker for personnel. The first card swiped gains control."
 	name = "personal closet"
 	req_access = list(ACCESS_ALL_PERSONAL_LOCKERS)
@@ -12,7 +14,7 @@ var/constructionStep = null
 	var/constructionStep = CONSTRUCTION_COMPLETE
 
 //установка замка
-/obj/structures/cratec_lockers/closet/secure/personal/examine(mob/user)
+/obj/structures/crates_lockers/closet/secure/personal/examine(mob/user)
 	. = ..()
 	switch(constructionStep)
 		if(CONSTRUCTION_PANEL_OPEN)
@@ -23,15 +25,15 @@ var/constructionStep = null
 			. += "<span class='notice'>крышка откручена, видна плата.</span>"
 		if(CONSTRUCTION_NOCIRCUIT)
 			. += "<span class='notice'>крышка откручена, нет проводов и платы, можно убрать замок.</span>"
-//возможный судный день
-/obj/structures/cratec_lockers/closet/secure/personal/update_icon()
+
+/obj/structures/crates_lockers/closet/secure/personal/update_icon()
 	..()
 	icon_state = "closet[constructionStep]"
 
-/obj/structures/cratec_lockers/closet/secure/personal/attackby(obj/item/C, mob/user)
+/obj/structures/crates_lockers/closet/secure/personal/attackby(obj/item/C, mob/user)
 	switch(constructionStep)
 		if(CONSTRUCTION_NOCIRCUIT)
-			if(istype(C, /obj/structures/crates_lockers/closets/Lockerlock_electronics))
+			if(istype(C, /obj/item/Lockerlock_electronics))
 				user.visible_message("<span class='notice'>[user] начал устанавливать [C] в [src]...</span>", \
 									 "<span class='notice'>ты начал установку платы в [src]...</span>")
 				playsound(get_turf(src), C.usesound, 50, 1)
@@ -106,7 +108,7 @@ var/constructionStep = null
 	constructionStep = CONSTRUCTION_GUTTED
 	update_icon()
 
-	/obj/structure/closet/secure_closet/personal/screwdriver_act(mob/user, obj/item/I)
+/obj/structure/closet/secure_closet/personal/screwdriver_act(mob/user, obj/item/I)
 	if(constructionStep != CONSTRUCTION_WIRES_EXPOSED)
 		return
 	. = TRUE
@@ -152,7 +154,7 @@ var/constructionStep = null
 		return
 	WELDER_SLICING_SUCCESS_MESSAGE
 	new /obj/structure/closet
-	new /obj/structures/crates_lockers/closets/Lockerlock_electronics
+	new /obj/item/Lockerlock_electronics
 	qdel(src)
 
 /obj/structure/closet/secure_closet/personal/populate_contents()
@@ -233,7 +235,6 @@ var/constructionStep = null
 			desc = "Owned by [I.registered_name]."
 	else
 		to_chat(user, "<span class='warning'>Access Denied</span>")
-
 
 #undef CONSTRUCTION_COMPLETE
 #undef CONSTRUCTION_PANEL_OPEN
